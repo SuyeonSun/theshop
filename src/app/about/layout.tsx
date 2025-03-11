@@ -1,4 +1,4 @@
-import Navigation from "@/components/about/navigation";
+import Navigation from "@/app/about/_components/Navigation";
 import classNames from "classnames/bind";
 import styles from "./layout.module.scss";
 

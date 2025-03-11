@@ -36,7 +36,7 @@ export default function AboutPage() {
           key={mission.id}
           className={cx({ "mission-container": index !== missions.length - 1 })}
         >
-          <Flex direction="row" justify="between" align="start" gap="xl">
+          <Flex direction="row" justify="start" align="start" gap="xl">
             <Text size="title2" color="adaptiveBackground">
               {mission.id}
             </Text>
