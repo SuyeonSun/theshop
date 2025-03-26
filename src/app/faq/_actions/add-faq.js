@@ -2,7 +2,7 @@
 
 import { saveFaq } from "@/app/faq/_lib/faq-data";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 export async function addFaq(newFormData) {
   const faq = {
@@ -11,5 +11,5 @@ export async function addFaq(newFormData) {
   };
   await saveFaq(faq);
   revalidatePath("/faq");
-  redirect("/faq");
+  // redirect("/faq");
 }

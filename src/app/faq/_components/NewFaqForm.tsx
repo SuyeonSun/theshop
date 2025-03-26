@@ -9,8 +9,15 @@ import { useState } from "react";
 
 export default function NewFaqForm() {
   const cx = classNames.bind(styles);
+  const { pending } = useFormStatus();
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+
+  const handleSubmit = async (formData: FormData) => {
+    await addFaq(formData);
+    setQuestion("");
+    setAnswer("");
+  };
 
   return (
     <div className={cx({ "new-faq-form-container": true })}>
@@ -19,7 +26,7 @@ export default function NewFaqForm() {
           새로운 FAQ를 입력하세요.
         </Text>
       </div>
-      <form action={addFaq}>
+      <form action={handleSubmit}>
         <Flex direction="column" gap="sm">
           <Input
             name="question"
@@ -47,23 +54,16 @@ export default function NewFaqForm() {
             }}
             value={answer}
           />
-          <SubmitButton />
+          <Button
+            disabled={pending}
+            outlineColor="adaptiveGrey900"
+            backgroundColor="adaptiveGrey900"
+            full
+          >
+            {pending ? "등록 중" : "등록"}
+          </Button>
         </Flex>
       </form>
     </div>
-  );
-}
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button
-      disabled={pending}
-      outlineColor="adaptiveGrey900"
-      backgroundColor="adaptiveGrey900"
-      full
-    >
-      {pending ? "등록 중" : "등록"}
-    </Button>
   );
 }
