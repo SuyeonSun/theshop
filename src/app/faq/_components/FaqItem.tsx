@@ -24,7 +24,7 @@ export default function FaqItem({ faq }: { faq: Faq }) {
           </Text>
         </div>
         {open && (
-          <div style={{ padding: "15px" }}>
+          <div className={cx({ "faq-answer": true })}>
             <Text size="body2" bold={false} color="adaptiveGrey800">
               {faq.answer}
             </Text>
