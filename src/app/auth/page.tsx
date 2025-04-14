@@ -4,9 +4,12 @@ import Image from "next/image";
 import { Button, Flex } from "@theshop/ui";
 import classNames from "classnames/bind";
 import styles from "./page.module.scss";
+import { useRouter } from "next/navigation";
+
+const cx = classNames.bind(styles);
 
 export default function AuthPage() {
-  const cx = classNames.bind(styles);
+  const router = useRouter();
 
   return (
     <div className={cx({ "auth-page-container": true })}>
@@ -49,7 +52,7 @@ export default function AuthPage() {
             size="md"
             full={true}
             onClick={() => {
-              console.log("버튼 클릭");
+              router.push("/auth/login");
             }}
           >
             로그인
