@@ -4,9 +4,9 @@ import classNames from "classnames/bind";
 import styles from "./page.module.scss";
 import NewFaqForm from "./_components/NewFaqForm";
 
-export default function FaqPage() {
-  const cx = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
+export default function FaqPage() {
   return (
     <>
       <div className={cx({ "faq-page-container": true })}>
