@@ -16,8 +16,8 @@ export default function AuthPage() {
         </Flex>
       </div>
 
-      <Flex direction="column" justify="center" align="center" gap="sm">
-        <div style={{ width: "400px" }}>
+      <div className={cx({ "buttons-container": true })}>
+        <Flex direction="column" justify="center" align="center" gap="sm">
           <Button
             color="adaptiveBackground"
             backgroundColor="adaptiveGrey900"
@@ -30,8 +30,6 @@ export default function AuthPage() {
           >
             판매자 회원가입
           </Button>
-        </div>
-        <div style={{ width: "400px" }}>
           <Button
             color="adaptiveBackground"
             backgroundColor="adaptiveGrey900"
@@ -44,8 +42,6 @@ export default function AuthPage() {
           >
             구매자 회원가입
           </Button>
-        </div>
-        <div style={{ width: "400px" }}>
           <Button
             color="adaptiveBackground"
             backgroundColor="adaptiveGrey900"
@@ -58,8 +54,8 @@ export default function AuthPage() {
           >
             로그인
           </Button>
-        </div>
-      </Flex>
+        </Flex>
+      </div>
     </div>
   );
 }

@@ -1,13 +1,16 @@
 import { Text } from "@theshop/ui";
+import classNames from "classnames/bind";
+import styles from "./header.module.scss";
 
-export default function Header({ title }) {
+interface HeaderProps {
+  title: string;
+}
+
+const cx = classNames.bind(styles);
+
+export default function Header({ title }: HeaderProps) {
   return (
-    <div
-      style={{
-        padding: "10px 0px 10px 25px",
-        backgroundColor: "#F5F5F5",
-      }}
-    >
+    <div className={cx({ "header-container": true })}>
       <Text size="body1" bold={true} color="adaptiveGrey900">
         {title}
       </Text>
