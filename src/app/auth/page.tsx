@@ -4,9 +4,12 @@ import Image from "next/image";
 import { Button, Flex } from "@theshop/ui";
 import classNames from "classnames/bind";
 import styles from "./page.module.scss";
+import { useRouter } from "next/navigation";
+
+const cx = classNames.bind(styles);
 
 export default function AuthPage() {
-  const cx = classNames.bind(styles);
+  const router = useRouter();
 
   return (
     <div className={cx({ "auth-page-container": true })}>
@@ -16,8 +19,8 @@ export default function AuthPage() {
         </Flex>
       </div>
 
-      <Flex direction="column" justify="center" align="center" gap="sm">
-        <div style={{ width: "400px" }}>
+      <div className={cx({ "buttons-container": true })}>
+        <Flex direction="column" justify="center" align="center" gap="sm">
           <Button
             color="adaptiveBackground"
             backgroundColor="adaptiveGrey900"
@@ -30,8 +33,6 @@ export default function AuthPage() {
           >
             판매자 회원가입
           </Button>
-        </div>
-        <div style={{ width: "400px" }}>
           <Button
             color="adaptiveBackground"
             backgroundColor="adaptiveGrey900"
@@ -44,8 +45,6 @@ export default function AuthPage() {
           >
             구매자 회원가입
           </Button>
-        </div>
-        <div style={{ width: "400px" }}>
           <Button
             color="adaptiveBackground"
             backgroundColor="adaptiveGrey900"
@@ -53,13 +52,13 @@ export default function AuthPage() {
             size="md"
             full={true}
             onClick={() => {
-              console.log("버튼 클릭");
+              router.push("/auth/login");
             }}
           >
             로그인
           </Button>
-        </div>
-      </Flex>
+        </Flex>
+      </div>
     </div>
   );
 }
